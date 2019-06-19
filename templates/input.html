@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<style>
+			html, body, p, th, td, li, dd, dt {
+			 font: 1em Arial, Helvetica, sans-serif;
+			 margin-left:30px;
+			}
+		</style>
+		<title>Concrete Strenght Predictor</title>
+	</head>
+
+	<body>
+		<h2 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Input Form</h3>
+		<div>
+			<form action="/predict" method="POST">
+				<table>
+					<tr> 
+						<td><label for="cement">Cement</label></td>
+						<td><input type="text" id="cement" name="cement" size="24"></td>
+						<td>Kg/Cu.M (Range: 100 - 550)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="blast">Blast</label></td>
+						<td><input type="text" id="blast" name="blast" size="24"></td>
+						<td>Kg/Cu.M (Range: 0 - 360)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="flyash">Fly Ash</label></td>
+						<td><input type="text" id="flyash" name="flyash" size="24"></td>
+						<td>Kg/Cu.M (Range: 0 - 200)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="water">Water</label></td>
+						<td><input type="text" id="water" name="water" size="24"></td>
+						<td>Kg/Cu.M (Range: 120 - 250)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="superplasticizer">Super Plasticizer</label></td>
+						<td><input type="text" id="superplasticizer" name="superplasticizer" size="24"></td>
+						<td>Kg/Cu.M (Range: 0 - 32)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="coarse_aggregate">Coarse Aggregate</label></td>
+						<td><input type="text" id="coarse_aggregate" name="coarse_aggregate" size="24"></td>
+						<td>Kg/Cu.M (Range: 801 - 1145)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="fine_aggregate">Fine Aggregate</label></td>
+						<td><input type="text" id="fine_aggregate" name="fine_aggregate" size="24"></td>
+						<td>Kg/Cu.M (Range: 594 - 993)</td>
+					</tr>
+					
+					<tr> 
+						<td><label for="age">Age</label></td>
+						<td><select id="age" name="age">
+							  <option value="One">One</option>
+							  <option value="Three">Three</option>
+							  <option value="Seven">Seven</option>
+							  <option value="Fourteen">Fourteen</option>
+							  <option value="Twenty Eight">Twenty Eight</option>
+							  <option value="Fifty Six">Fifty Six</option>
+							  <option value="Ninety">Ninety</option>
+							  <option value="Ninety One">Ninety One</option>
+							  <option value="One Hundred">One Hundred</option>
+							  <option value="One Hundred and Twenty">One Hundred and Twenty</option>
+							  <option value="One Hundred and Eighty">One Hundred and Eighty</option>
+							  <option value="Two Hundred and Seventy">Two Hundred and Seventy</option>
+							  <option value="Three Hundred and Sixty">Three Hundred and Sixty</option>
+							  <option value="Three Hundred and Sixty Five">Three Hundred and Sixty Five</option>
+							</select>
+						</td>
+						<td>Days</td>
+					</tr>
+					<tr><td></td><td>&nbsp;</td><td></td></tr>
+					<tr><td></td><td><button type="reset" value="Reset">Reset</button> <input type="submit" value="Submit"></td><td></td></tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>
