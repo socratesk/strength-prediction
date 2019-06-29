@@ -18,14 +18,14 @@
 			
 			table {
 			  text-align: left;
-			  font-family: serif;
+			  font-family: "Comic Sans MS", cursive, sans-serif;
 			  font-weight: normal;
-			  font-size: 1.2em;
+			  font-size: 1em;
 			  margin-top: 15px;
 			}
 
 			tr {
-			  height: 30px;
+			  height: 32px;
 			}
 
 			input[type=text], select {
@@ -38,7 +38,7 @@
 			  box-sizing: border-box;
 			}
 
-			input[type=submit], button {
+			input[type=submit], input[type=button], button {
 			  width: 48%;
 			  padding: 10px 16px;
 			  margin: 1px 0;
@@ -65,6 +65,58 @@
 	<body>
 		<img src="../static/concrete-failure.jpg" alt="Concrete Strength" class="center">
 		<h1 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Result</h1>
-		<table><tr><td width='275px'></td> <td>The compressive strength of the concrete mixture is <b>{{ strength_predicted }}</b> MPa</td></tr></table>
+		<table>
+			<tr>
+				<td width='275px'></td> 
+				<td >Cement</td> 
+				<td>{{ cement }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Blast</td> 
+				<td>{{ blast }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Fly Ash</td> 
+				<td>{{ flyash }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Water</td> 
+				<td>{{ water }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Super Plasticizer</td> 
+				<td>{{ superplasticizer }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Coarse Aggregate</td> 
+				<td>{{ flyash }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Fine Aggregate</td> 
+				<td>{{ fine_aggregate }} Kg/Cu.M</td>
+			</tr>
+			<tr>
+				<td ></td> 
+				<td >Age</td> 
+				<td>{{ age }} Days</td>
+			</tr>
+			<tr><td colspan="3"></td> </tr>
+			<tr>
+				<td></td>
+				<td colspan="2">The compressive strength of the concrete mixture is <b>{{ strength_predicted }}</b> MPa</td>
+			</tr>
+			
+			<tr>
+				<td ></td>
+				<td > <input type="button" value="Back" onclick="history.go(-1)"></td>
+				<td ></td>
+			</tr>
+		</table>
 	</body>
 </html>
