@@ -1,22 +1,78 @@
 <html>
 	<head>
 		<style>
-			html, body, p, th, td, li, dd, dt {
-			 font: 1em Arial, Helvetica, sans-serif;
-			 margin-left:30px;
+			body {
+			  background-color: #faf2bb;
+			  margin: 0 15%;
+			  font-family: sans-serif;
 			}
+
+			h1 {
+			  text-align: center;
+			  font-family: verdana;
+			  font-weight: normal;
+			  border-bottom: 3px solid #57b1dc;
+			  margin-top: 5px;
+			  
+			}
+			
+			table {
+			  text-align: left;
+			  font-family: serif;
+			  font-weight: normal;
+			  font-size: 1.2em;
+			  margin-top: 15px;
+			}
+
+			tr {
+			  height: 30px;
+			}
+
+			input[type=text], select {
+			  width: 100%;
+			  padding: 10px 16px;
+			  margin: 1px 0;
+			  display: inline-block;
+			  border: 1px solid #ccc;
+			  border-radius: 5px;
+			  box-sizing: border-box;
+			}
+
+			input[type=submit], button {
+			  width: 48%;
+			  padding: 10px 16px;
+			  margin: 1px 0;
+			  display: inline-block;
+			  border: 1px solid #ccc;
+			  border-radius: 5px;
+			  box-sizing: border-box;
+			  font-weight: bold;
+			}
+
+			.center {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			  width:250px;
+			  height:200px;
+			  margin-top: 5px;
+  
+			}
+
+			
 		</style>
 		<title>Concrete Strenght Predictor</title>
 	</head>
 
 	<body>
-		<h2 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Input Form</h3>
+		<img src="../static/concrete-failure.jpg" alt="Concrete Strength" class="center">
+		<h1 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Input Form</h1>
 		<div>
 			<form action="/predict" method="POST">
-				<table>
+				<table align="center">
 					<tr> 
 						<td><label for="cement">Cement</label></td>
-						<td><input type="text" id="cement" name="cement" size="24"></td>
+						<td><input type="text" id="cement" name="cement" "></td>
 						<td>Kg/Cu.M (Range: 100 - 550)</td>
 					</tr>
 					
