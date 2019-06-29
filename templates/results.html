@@ -1,16 +1,70 @@
 <html>
 	<head>
 		<style>
-			html, body, p, th, td, li, dd, dt {
-			 font: 1em Arial, Helvetica, sans-serif;
-			 margin-left:30px;
+			body {
+			  background-color: #faf2bb;
+			  margin: 0 15%;
+			  font-family: sans-serif;
+			}
+
+			h1 {
+			  text-align: center;
+			  font-family: verdana;
+			  font-weight: normal;
+			  border-bottom: 3px solid #57b1dc;
+			  margin-top: 5px;
+			  
+			}
+			
+			table {
+			  text-align: left;
+			  font-family: serif;
+			  font-weight: normal;
+			  font-size: 1.2em;
+			  margin-top: 15px;
+			}
+
+			tr {
+			  height: 30px;
+			}
+
+			input[type=text], select {
+			  width: 100%;
+			  padding: 10px 16px;
+			  margin: 1px 0;
+			  display: inline-block;
+			  border: 1px solid #ccc;
+			  border-radius: 5px;
+			  box-sizing: border-box;
+			}
+
+			input[type=submit], button {
+			  width: 48%;
+			  padding: 10px 16px;
+			  margin: 1px 0;
+			  display: inline-block;
+			  border: 1px solid #ccc;
+			  border-radius: 5px;
+			  box-sizing: border-box;
+			  font-weight: bold;
+			}
+
+			.center {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			  width:250px;
+			  height:200px;
+			  margin-top: 5px;
+  
 			}
 		</style>
 		<title>Concrete Strenght Predictor - Result</title>
 	</head>
 
 	<body>
-		<h2 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Result</h3>
-		<table><tr><td>The compressive strength of the concrete mixture is <b>{{ strength_predicted }}</b> MPa</td></tr></table>
+		<img src="../static/concrete-failure.jpg" alt="Concrete Strength" class="center">
+		<h1 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Result</h1>
+		<table><tr><td width='275px'></td> <td>The compressive strength of the concrete mixture is <b>{{ strength_predicted }}</b> MPa</td></tr></table>
 	</body>
 </html>
