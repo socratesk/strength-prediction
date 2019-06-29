@@ -66,7 +66,17 @@ def predict():
 		strength_predicted = str(round(concrete_strength_predictor_model.predict(concrete_df)[0], 2))
 		print ("Predicted Concrete Strength: ", strength_predicted)
 
-		return render_template('results.html', strength_predicted=strength_predicted)
+		return render_template('results.html', 
+						strength_predicted=strength_predicted, 
+						cement=float(request.form['cement']),
+						blast=float(request.form['blast']),
+						flyash=float(request.form['flyash']),
+						water=float(request.form['water']),
+						superplasticizer=float(request.form['superplasticizer']),
+						coarse_aggregate=float(request.form['coarse_aggregate']),
+						fine_aggregate=float(request.form['fine_aggregate']),
+						age=concrete_df['age'][0]
+						)
 
 	
 # FOR LOCAL SERVER ONLY	
