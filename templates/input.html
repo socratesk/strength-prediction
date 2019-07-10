@@ -1,71 +1,20 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<style>
-			body {
-			  background-color: #faf2bb;
-			  margin: 0 15%;
-			  font-family: sans-serif;
-			}
+		<title>Concrete Strength Predictor</title>
+		<link href="../static/StyleSheet.css" rel="stylesheet" type="text/css">
+		
 
-			h1 {
-			  text-align: center;
-			  font-family: verdana;
-			  font-weight: normal;
-			  border-bottom: 3px solid #57b1dc;
-			  margin-top: 5px;
-			  
-			}
-			
-			table {
-			  text-align: left;
-			  font-family: "Comic Sans MS", cursive, sans-serif;
-			  font-weight: normal;
-			  font-size: 1em;
-			  margin-top: 15px;
-			}
-
-			tr {
-			  height: 30px;
-			}
-
-			input[type=text], select {
-			  width: 100%;
-			  padding: 10px 16px;
-			  margin: 1px 0;
-			  display: inline-block;
-			  border: 1px solid #ccc;
-			  border-radius: 5px;
-			  box-sizing: border-box;
-			}
-
-			input[type=submit], button {
-			  width: 48%;
-			  padding: 10px 16px;
-			  margin: 1px 0;
-			  display: inline-block;
-			  border: 1px solid #ccc;
-			  border-radius: 5px;
-			  box-sizing: border-box;
-			  font-weight: bold;
-			}
-
-			.center {
-			  display: block;
-			  margin-left: auto;
-			  margin-right: auto;
-			  width:250px;
-			  height:200px;
-			  margin-top: 5px;
-  
-			}
-
-			
-		</style>
-		<title>Concrete Strenght Predictor</title>
 	</head>
 
 	<body>
-		<img src="../static/concrete-failure.jpg" alt="Concrete Strength" class="center">
+		<div class="topnav">
+		  <a href="index.html">Home</a>
+		  <a href="data.html">Data</a>
+		  <a href="EDA.html">EDA</a>
+		  <a href="model.html">ML Model</a>
+		  <a class="active" href="input.html">Predict</a>
+		</div>
 		<h1 style="color:blue;margin-left:30px;">Concrete Strength Predictor - Input Form</h1>
 		<div>
 			<form action="/predict" method="POST">
@@ -114,25 +63,23 @@
 					
 					<tr> 
 						<td><label for="age">Age</label></td>
-						<td><select id="age" name="age">
-							  <option value="One">One</option>
-							  <option value="Three">Three</option>
-							  <option value="Seven">Seven</option>
-							  <option value="Fourteen">Fourteen</option>
-							  <option value="Twenty Eight">Twenty Eight</option>
-							  <option value="Fifty Six">Fifty Six</option>
-							  <option value="Ninety">Ninety</option>
-							  <option value="Ninety One">Ninety One</option>
-							  <option value="One Hundred">One Hundred</option>
-							  <option value="One Hundred and Twenty">One Hundred and Twenty</option>
-							  <option value="One Hundred and Eighty">One Hundred and Eighty</option>
-							  <option value="Two Hundred and Seventy">Two Hundred and Seventy</option>
-							  <option value="Three Hundred and Sixty">Three Hundred and Sixty</option>
-							  <option value="Three Hundred and Sixty Five">Three Hundred and Sixty Five</option>
-							</select>
+						<td>
+							<div class="rangeslider"> 
+							  <input type="range" min="4" max="365" value="90" class="myslider" id="age" name="age"> 
 						</td>
-						<td>Days</td>
+						<td><span id="demo"> </span> Days</td>
+						</div>
+							<script> 
+								var rangeslider = document.getElementById("age"); 
+								var output = document.getElementById("demo"); 
+								output.innerHTML = rangeslider.value; 
+								  
+								rangeslider.oninput = function() { 
+								  output.innerHTML = this.value; 
+								} 
+							</script> 
 					</tr>
+					
 					<tr><td></td><td>&nbsp;</td><td></td></tr>
 					<tr><td></td><td><button type="reset" value="Reset">Reset</button> <input type="submit" value="Submit"></td><td></td></tr>
 				</table>
