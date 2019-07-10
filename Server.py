@@ -13,23 +13,33 @@ concrete_strength_predictor_file = open('model/concrete_xgb_deloyable_model_ver_
 concrete_strength_predictor_model = pickle.load(concrete_strength_predictor_file)
 concrete_strength_predictor_file.close()
 
-global concrete_days_dict
-print ("Loading dictionary...")
-concrete_days_file = open('model/concrete_days_ver_1_0.dict', 'rb')
-concrete_days_dict = pickle.load(concrete_days_file)
-concrete_days_file.close()
+#global concrete_days_dict
+#print ("Loading dictionary...")
+#concrete_days_file = open('model/concrete_days_ver_1_0.dict', 'rb')
+#concrete_days_dict = pickle.load(concrete_days_file)
+#concrete_days_file.close()
 	
 @app.route('/')
-@app.route('/index')
+@app.route('/index.html')
 def home():
-    return "Hi, Welcome to Flask!!"
+    return render_template('index.html')
 
+@app.route('/data.html')
+def data():
+    return render_template('data.html')
+
+@app.route('/EDA.html')
+def EDA():
+    return render_template('EDA.html')
+	
+@app.route('/model.html')
+def model():
+    return render_template('model.html')
 	
 # Render Concrete mixture input page
-@app.route('/input')
+@app.route('/input.html')
 def input():
     return render_template('input.html')
-
 	
 # This function will be called when the input page is submitted
 @app.route('/predict', methods=["POST"])
@@ -46,7 +56,7 @@ def predict():
 					  'superplasticizer': float(request.form['superplasticizer']),
 					  'coarse_aggregate': float(request.form['coarse_aggregate']),
 					  'fine_aggregate': float(request.form['fine_aggregate']),
-					  'age': request.form['age']
+					  'age': int(request.form['age'])
 					 }
 					 
 		# Construct dataframe out of the dictionary object
@@ -57,10 +67,10 @@ def predict():
 		# ****** carried-out in user-input as well. This is the right place where you have to carry-out the 
 		# ****** feature update on the input dataset.
 		
-		concrete_df['age'] = concrete_days_dict.get(request.form['age'])
+		# concrete_df['age'] = concrete_days_dict.get(request.form['age'])
 		# --------------------------------------------------------------------------------------------------------
 		
-		print ("Input values before passing onto model: \n", concrete_df)
+		# print ("Input values before passing onto model: \n", concrete_df)
 
 		# Pass the dataframe object to loaded ML model and do prediction
 		strength_predicted = str(round(concrete_strength_predictor_model.predict(concrete_df)[0], 2))
@@ -75,7 +85,7 @@ def predict():
 						superplasticizer=float(request.form['superplasticizer']),
 						coarse_aggregate=float(request.form['coarse_aggregate']),
 						fine_aggregate=float(request.form['fine_aggregate']),
-						age=concrete_df['age'][0]
+						age=int(request.form['age'])
 						)
 
 	
