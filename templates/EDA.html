@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Concrete Strength Predictor - Exploratory Data Analysis (EDA)</title>
+		<link href="../static/StyleSheet.css" rel="stylesheet" type="text/css">
+		<style>
+			table.a {
+			  table-layout: fixed;
+			  width: 100%;  
+			  border-collapse: collapse;
+			  border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="topnav">
+		  <a href="index.html">Home</a>
+		  <a href="data.html">Data</a>
+		  <a class="active" href="EDA.html">EDA</a>
+		  <a href="model.html">ML Model</a>
+		  <a href="input.html">Predict</a>
+		</div>
+		
+		<h1 style="color:blue;margin-left:30px;">Exploratory Data Analysis</h1>
+		<div>
+			<table>
+				<tr> 
+					<td align="justify">
+						Exploratory Data Analysis (EDA) is performed to understand the data, to get more insight to perform better feature enigneering, and to clean-up/ tidy the dataset. Before performing feature engineering and model generation, it is necessary to understand 
+						<ul>
+							<li> whether it is a right data
+							<li> whether there is enough data
+							<li> the spread of the data
+							<li> the number of missing values
+							<li> the correlation between features
+							<li> whether there is a data leakage
+							<li> the feature contribution/ importance
+							<li> whether there are any outliers
+							<li> whether there are duplicate instances (rows)
+							<li> whether there are duplicate features (columns) or feature with same value
+						</ul>
+						
+						<h2 align="justify">Data shape:</h2>Instances: 1030<br> Features: 9
+						<h2 align="justify">No of missing values:</h2>None
+						<h2 align="justify">Feature Stats:</h2>
+							<table border="1px solid black" class="a">
+								 <tr bgcolor="BBCC00">
+									  <td>Stats</td>
+									  <td>cement</td>
+									  <td>blast</td>
+									  <td>flyash</td>
+									  <td>water</td>
+									  <td>sup.plasticizer</td>
+									  <td>coarse_aggr</td>
+									  <td>fine_aggr</td>
+									  <td>age</td>
+									  <td>comp strength</td>
+									  
+									 </tr>
+									 <tr>
+									  <td>count</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									  <td>1030</td>
+									 </tr>
+									 <tr>
+									  <td>mean</td>
+									  <td>281.1679</td>
+									  <td>73.89583</td>
+									  <td>54.18835</td>
+									  <td>181.5673</td>
+									  <td>6.20466</td>
+									  <td>972.9189</td>
+									  <td>773.5805</td>
+									  <td>45.66214</td>
+									  <td>35.81796</td>
+									 </tr>
+									 <tr>
+									  <td>std</td>
+									  <td>104.5064</td>
+									  <td>86.27934</td>
+									  <td>63.997</td>
+									  <td>21.35422</td>
+									  <td>5.973841</td>
+									  <td>77.75395</td>
+									  <td>80.17598</td>
+									  <td>63.16991</td>
+									  <td>16.70574</td>
+									 </tr>
+									 <tr>
+									  <td>min</td>
+									  <td>102</td>
+									  <td>0</td>
+									  <td>0</td>
+									  <td>121.8</td>
+									  <td>0</td>
+									  <td>801</td>
+									  <td>594</td>
+									  <td>1</td>
+									  <td>2.33</td>
+									 </tr>
+									 <tr>
+									  <td>25%</td>
+									  <td>192.375</td>
+									  <td>0</td>
+									  <td>0</td>
+									  <td>164.9</td>
+									  <td>0</td>
+									  <td>932</td>
+									  <td>730.95</td>
+									  <td>7</td>
+									  <td>23.71</td>
+									 </tr>
+									 <tr>
+									  <td>50%</td>
+									  <td>272.9</td>
+									  <td>22</td>
+									  <td>0</td>
+									  <td>185</td>
+									  <td>6.4</td>
+									  <td>968</td>
+									  <td>779.5</td>
+									  <td>28</td>
+									  <td>34.445</td>
+									 </tr>
+									 <tr>
+									  <td>75%</td>
+									  <td>350</td>
+									  <td>142.95</td>
+									  <td>118.3</td>
+									  <td>192</td>
+									  <td>10.2</td>
+									  <td>1029.4</td>
+									  <td>824</td>
+									  <td>56</td>
+									  <td>46.135</td>
+									 </tr>
+									 <tr >
+									  <td>max</td>
+									  <td>540</td>
+									  <td>359.4</td>
+									  <td>200.1</td>
+									  <td>247</td>
+									  <td>32.2</td>
+									  <td>1145</td>
+									  <td>992.6</td>
+									  <td>365</td>
+									  <td>82.6</td>
+									 </tr>
+							</table>
+								
+						<h2 align="justify">Feature importance:</h2>
+							<table > 
+								 <tr>
+									  <td><img src='../static/featimp.png'> </img></td>
+									  <td>&nbsp;</td>
+									  <td>
+										  <table border="1px solid black" class="a">
+											 <tr bgcolor="BBCC00"><td>Feature</td><td>Importance</td></tr>
+											 <tr><td>cement</td><td>0.362786</td></tr>
+											 <tr><td>age</td><td>0.326388</td></tr>
+											 <tr><td>water</td><td>0.098656</td></tr>
+											 <tr><td>blast</td><td>0.097047</td></tr>
+											 <tr><td>superplasticizer</td><td>0.052164</td></tr>
+											 <tr><td>fine_aggregate</td><td>0.027951</td></tr>
+											 <tr><td>coarse_aggregate</td><td>0.02646</td></tr>
+											 <tr><td>flyash</td><td>0.008549</td></tr> 
+										</table>
+									  </td>
+								</tr>
+							</table>
+							
+						<h2 align="justify">Feature correlation:</h2>
+							<table border="1px solid black" class="a"> 
+								 <tr bgcolor="BBCC00">
+									  <td>&nbsp;</td>
+									  <td>cement</td>
+									  <td>blast</td>
+									  <td>flyash</td>
+									  <td>water</td>
+									  <td>sup.plasticizer</td>
+									  <td>coarse_aggr</td>
+									  <td>fine_aggr</td>
+									  <td>age</td>
+									  <td>comp strength</td>
+								 </tr>
+								 <tr>
+									  <td>cement</td>
+									  <td>1</td>
+									  <td>-0.27522</td>
+									  <td>-0.39747</td>
+									  <td>-0.08159</td>
+									  <td>0.092386</td>
+									  <td>-0.10935</td>
+									  <td>-0.22272</td>
+									  <td>0.081946</td>
+									  <td>0.497832</td>
+								 </tr>
+								 <tr>
+									  <td>blast</td>
+									  <td>-0.27522</td>
+									  <td>1</td>
+									  <td>-0.32358</td>
+									  <td>0.107252</td>
+									  <td>0.04327</td>
+									  <td>-0.284</td>
+									  <td>-0.2816</td>
+									  <td>-0.04425</td>
+									  <td>0.134829</td>
+								 </tr>
+								 <tr>
+									  <td>flyash</td>
+									  <td>-0.39747</td>
+									  <td>-0.32358</td>
+									  <td>1</td>
+									  <td>-0.25698</td>
+									  <td>0.377503</td>
+									  <td>-0.00996</td>
+									  <td>0.079108</td>
+									  <td>-0.15437</td>
+									  <td>-0.10576</td>
+								 </tr>
+								 <tr>
+									  <td>water</td>
+									  <td>-0.08159</td>
+									  <td>0.107252</td>
+									  <td>-0.25698</td>
+									  <td>1</td>
+									  <td>-0.65753</td>
+									  <td>-0.18229</td>
+									  <td>-0.45066</td>
+									  <td>0.277618</td>
+									  <td>-0.28963</td>
+								 </tr>
+								 <tr>
+									  <td>sup.plasticizer</td>
+									  <td>0.092386</td>
+									  <td>0.04327</td>
+									  <td>0.377503</td>
+									  <td>-0.65753</td>
+									  <td>1</td>
+									  <td>-0.266</td>
+									  <td>0.222691</td>
+									  <td>-0.1927</td>
+									  <td>0.366079</td>
+								 </tr>
+								 <tr>
+									  <td>coarse_aggr</td>
+									  <td>-0.10935</td>
+									  <td>-0.284</td>
+									  <td>-0.00996</td>
+									  <td>-0.18229</td>
+									  <td>-0.266</td>
+									  <td>1</td>
+									  <td>-0.17848</td>
+									  <td>-0.00302</td>
+									  <td>-0.16494</td>
+								 </tr>
+								 <tr>
+									  <td>fine_aggr</td>
+									  <td>-0.22272</td>
+									  <td>-0.2816</td>
+									  <td>0.079108</td>
+									  <td>-0.45066</td>
+									  <td>0.222691</td>
+									  <td>-0.17848</td>
+									  <td>1</td>
+									  <td>-0.1561</td>
+									  <td>-0.16724</td>
+								 </tr>
+								 <tr>
+									  <td>age</td>
+									  <td>0.081946</td>
+									  <td>-0.04425</td>
+									  <td>-0.15437</td>
+									  <td>0.277618</td>
+									  <td>-0.1927</td>
+									  <td>-0.00302</td>
+									  <td>-0.1561</td>
+									  <td>1</td>
+									  <td>0.328873</td>
+								 </tr>
+								 <tr>
+									  <td>comp strength</td>
+									  <td>0.497832</td>
+									  <td>0.134829</td>
+									  <td>-0.10576</td>
+									  <td>-0.28963</td>
+									  <td>0.366079</td>
+									  <td>-0.16494</td>
+									  <td>-0.16724</td>
+									  <td>0.328873</td>
+									  <td>1</td>
+								 </tr>
+								</table>
+					
+					</td>
+				</tr>
+			</table>
+			<br><br>
+		</div>
+	</body>
+</html>

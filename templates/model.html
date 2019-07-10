@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Concrete Strength Predictor - Model</title>
+		<link href="../static/StyleSheet.css" rel="stylesheet" type="text/css">
+		<link href="../static/StyleSheet.css" rel="stylesheet" type="text/css">
+		<style>
+			table.a {
+			  table-layout: fixed;
+			  width: 100%;  
+			  border-collapse: collapse;
+			  border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="topnav">
+		  <a href="index.html">Home</a>
+		  <a href="data.html">Data</a>
+		  <a href="EDA.html">EDA</a>
+		  <a class="active" href="model.html">ML Model</a>
+		  <a href="input.html">Predict</a>
+		</div>
+		
+		<h1 style="color:blue;margin-left:30px;">Machine Learning Model</h1>
+		<div>
+			<table>
+				<tr> 
+					<td align="justify">
+					Linear Regression is a type of Machine Learning technique, which is used to predict the numerical outcome - whether <i>discrete</i> or <i>continuous</i>. The compressive strength of a concrete block is a non-linear function with respect to the ingredients it contains. As <a href="https://en.wikipedia.org/wiki/Compressive_strength" target='blank'>compressive strength</a> is a numerical value (Load / Cross-sectional area), the linear regression technique is used for given ingredients. 
+					
+					<h2 align="justify">Evaluation technique used:</h2>Train: 80%; Test: 20%
+					<h2 align="justify">Evaluation metrics used:</h2>Root Mean Square Error (RMSE)
+					<h2 align="justify">Hyperparameter tuning technique used:</h2>GridSearch CV 
+					<h2 align="justify">Machine Learning algorithms used:</h2>
+					<ul>
+						<li>Linear Regression 
+						<li>Random Forest
+						<li>XGBoost
+						<li>Light GBM
+						<li>GBM
+					</ul>	
+					<h2 align="justify">Comparison of model metrics:</h2>
+						<table  border="1px solid black" class="a">
+							<tr> 
+								<td bgcolor="BBCC00">Model</td>
+								<td>Linear Regression</td>
+								<td>Random Forest</td>
+								<td>XGBoost</td>
+								<td>Light GBM</td>
+								<td>GBM</td>
+							</tr>
+							<tr> 
+								<td bgcolor="BBCC00">RMSE</td>
+								<td>10.19</td>
+								<td>4.90</td>
+								<td>4.62</td>
+								<td>4.86</td>
+								<td>5.12</td>
+							</tr>
+						</table>
+					<h2 align="justify">Final single model used:</h2>XGBoost  
+					<h2 align="justify">Tuned hyper-parameters used:</h2>
+						<table  border="1px solid black" class="tableborder">
+							<tr bgcolor="BBCC00"> 
+								<td>Parameter</td> <td>Value</td>
+							</tr>
+							<tr>
+								<td width='200 px'>learning_rate</td><td width='125 px'>0.09</td>
+							</tr>
+							<tr>
+								<td>n_estimators</td><td>195</td>
+							</tr>
+							<tr>
+								<td>max_depth</td><td>5</td>
+							</tr>
+							<tr>
+								<td>min_child_weight</td><td>1</td>
+							</tr>
+							<tr>	
+								<td>subsample</td><td>0.85</td>
+							</tr>
+							<tr>
+								<td>colsample_bytree</td><td>0.5</td>
+							</tr>
+							<tr>
+								<td>reg_alpha</td><td>1.05</td>
+							</tr>
+							
+						</table>
+				
+					<br> <br> <br>
+					 
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
